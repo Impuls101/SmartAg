@@ -908,7 +908,6 @@ with col_herausforderungen:
 # --- DISCLAIMER & FOOTER ---
 #st.markdown('<div class="disclaimer">Hinweis: Dies ist ein Forschungsprojekt. Es verspricht keine kommerzielle Reife, sondern zielt auf Machbarkeitsnachweis, Dokumentation und Transfer.</div>', unsafe_allow_html=True)
 
-
 with open("Smarte und resiliente Landwirtschaft.pdf", "rb") as f:
     pdf_bytes = f.read()
 
@@ -925,3 +924,71 @@ st.markdown(f"""
     © 2025 | Technische Hochschule Brandenburg | Kontakt: <a href="mailto: eren.misirli@th-brandenburg.de">eren.misirli@th-brandenburg.de</a>
 </div>
 """, unsafe_allow_html=True)
+
+
+# --- FOOTER WITH LOGOS ---
+# def load_image_base64(image_path):
+#     import base64
+#     from pathlib import Path
+#     try:
+#         img_bytes = Path(image_path).read_bytes()
+#         encoded = base64.b64encode(img_bytes).decode()
+#         return f"data:image/png;base64,{encoded}"
+#     except:
+#         return ""
+
+# logo_right = load_image_base64("THB.png")
+# logo_left = load_image_base64("InNoWest-Logo.png")
+
+# with open("Smarte und resiliente Landwirtschaft.pdf", "rb") as f:
+#     pdf_base64 = base64.b64encode(f.read()).decode()
+
+# st.markdown(f"""
+# <style>
+# .footer {{
+#     display: flex;
+#     align-items: center;
+#     justify-content: space-between; /* Spread items to edges */
+#     padding: 1rem 1rem;
+#     border-top: 1px solid #e0e0e0;
+#     margin-top: 1rem;
+# }}
+
+# .footer > * {{
+#     flex: 1 10 1;
+# }}
+
+# .footer img {{
+#     position: bottom;
+#     height: 35px;
+# }}
+
+# .footer-center {{
+#     text-align: center;
+#     color: #757575;
+#     font-size: 0.85rem;
+# }}
+
+# .footer-center a {{
+#     justify-content: center;
+#     color: #4CAF50;
+#     text-decoration: none;
+# }}
+# </style>
+
+# <div class="footer">
+#     <div><img src="{logo_left}" alt="TH Brandenburg"></div>
+#     <div class="footer-center">
+#         Smarte und resiliente Landwirtschaft via Edge AI - Präsentation für potenzielle Projektpartner im Rahmen von <a href="https://innowest-brandenburg.de/">InNoWest</a> |
+#         <a href="data:application/pdf;base64,{pdf_base64}" 
+#         download="Smarte und resiliente Landwirtschaft.pdf"
+#         style="text-decoration: none; color: #4CAF50; font-weight: 400;">
+#         als PDF herunterladen
+#         </a><br>
+#         © 2025 | Technische Hochschule Brandenburg | Kontakt: <a href="mailto: eren.misirli@th-brandenburg.de">eren.misirli@th-brandenburg.de</a>
+#     </div>
+#     <div style="text-align: right;"><img src="{logo_right}" alt="xxx"></div>
+# </div>
+# """, unsafe_allow_html=True)
+
+#####################
