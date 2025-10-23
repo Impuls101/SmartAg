@@ -233,7 +233,7 @@ def get_base64_image(image_path):
         return ""
 
 # Bild laden
-bg_image = get_base64_image("smartgreenhouse7.png")
+bg_image = get_base64_image("smartgreenhouse.png")
 bg_image2 = get_base64_image("DryPlants.jpeg")
 
 st.markdown(f"""
@@ -359,7 +359,7 @@ with tab1:
     import base64
     
     # Bild als Base64 einbetten, um bessere Kontrolle über Groesse und Position zu haben
-    with open("TechnologieAufbauErweitert2Lang.png", "rb") as f:
+    with open("TechnologieAufbauErweitert3.png", "rb") as f:
         img_data = base64.b64encode(f.read()).decode()
     
     st.markdown(f"""
