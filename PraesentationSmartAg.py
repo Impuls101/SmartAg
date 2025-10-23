@@ -493,7 +493,7 @@ with tab2:
                 <li><b>Datenübertragung</b> erfolgt zu definierten Zeitpunkten an das lokale Gateway-/Serversystem</li>
                 <li><b>Gateway/Server</b> empfängt, speichert und visualisiert die Daten lokal</li>
                 <li><b>Zugriff</b> auf die Visualisierung erfolgt per Smartphone, Tablet oder Laptop über das lokale WLAN (bzw. optional über LTE)</li>
-                <li><b>Maßnahmen</b> können direkt vor Ort abgeleitet und umgesetzt werden (z. B. Bewässerung, Toppen, Ausgeizen, Warnung, Dokumentation).</li>
+                <li><b>Handlungsempfehlungen</b> können direkt vor Ort abgeleitet werden (z. B. Bewässern, Toppen, Ausdünnen, Auslichten, Ernten).</li>
             </ol>
         </div>
         """, unsafe_allow_html=True)
@@ -595,8 +595,7 @@ with tab2:
 #     st.plotly_chart(fig_demo, use_container_width=True)
 
 
-
-st.markdown("""""", unsafe_allow_html=True)
+st.markdown("""<br><br>""", unsafe_allow_html=True)
 # --- KEY BENEFITS/CHALLENGES ---
 st.markdown('<div class="section">Abwägungen im Überblick</div>', unsafe_allow_html=True)
 st.markdown("""""")
