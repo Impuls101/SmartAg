@@ -161,7 +161,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- HEADER ---
-st.markdown('<div class="title"><a href="https://www.streamlit.io" style="color: inherit; text-decoration: none;">🌾Smarte und resiliente Landwirtschaft mit Edge AI</a></div>', unsafe_allow_html=True)
+st.markdown('<div class="title"><a href="https://smartelandwirtschaft.streamlit.app/" style="color: inherit; text-decoration: none;">🌾Smarte und resiliente Landwirtschaft mit Edge AI</a></div>', unsafe_allow_html=True)
 st.markdown('<div class="subtitle">Ein Projekt zur intelligenten Nahrungsmittelüberwachung durch KI-Kamerasysteme – lokal, unabhängig und zukunftsfähig.'
 ' </div>', unsafe_allow_html=True)
 
