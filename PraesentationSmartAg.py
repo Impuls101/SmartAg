@@ -3,9 +3,12 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from datetime import datetime
 
+import base64
+from pathlib import Path
+
 # --- PAGE CONFIG ---
 st.set_page_config(
-    page_title="Smarte und resiliente Landwirtschaft",
+    page_title="Smarte und resiliente Landwirtschaft mit Edge AI",
     page_icon="📡",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -218,10 +221,6 @@ st.markdown('<div class="section"> Hintergrund & Motivation</div>', unsafe_allow
 # </div>
 # """, unsafe_allow_html=True)
 
-
-import streamlit as st
-import base64
-from pathlib import Path
 
 # Funktion zum Laden des Bildes als Base64
 def get_base64_image(image_path):
