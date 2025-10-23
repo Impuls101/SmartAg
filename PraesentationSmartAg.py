@@ -164,63 +164,13 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- HEADER ---
+
 st.markdown('<div class="title"><a href="https://smartelandwirtschaft.streamlit.app/" style="color: inherit; text-decoration: none;">🌾Smarte und resiliente Landwirtschaft mit Edge AI</a></div>', unsafe_allow_html=True)
 st.markdown('<div class="subtitle">Ein Projekt zur intelligenten Nahrungsmittelüberwachung durch KI-Kamerasysteme – lokal, unabhängig und zukunftsfähig.'
 ' </div>', unsafe_allow_html=True)
 
 # --- PROBLEM STATEMENT ---
 st.markdown('<div class="section"> Hintergrund & Motivation</div>', unsafe_allow_html=True)
-
-# st.markdown("""
-# <style>
-#     .table-container {
-#         display: flex;
-#         gap: 40px;
-#     }
-#     .column {
-#         flex: 1;
-#     }
-#     ul {
-#         margin: 0;
-#         padding-left: 20px;
-#     }
-#     .highlight li {
-#         font-size: 1.25rem;
-#         margin-bottom: 0.75rem;
-#         line-height: 1.4;
-#     }
-# </style>
-            
-# <div class="table-container">
-#     <div class="column">
-#         <div class="highlight">
-#             <h4 style="text-align: center;">🧭  Ausgangszustand</h4>
-#             <p><strong><span style="font-size: 1.25rem;">Die Landwirtschaft steht zunehmend unter Druck – ausgelöst durch:</span></strong></p>
-#             <ul>
-#               <li>Klimawandel</li>
-#               <li>Ressourcenknappheit (z. B. Wasser)</li>
-#               <li>Preisvolatilitäten und Marktschwankungen</li>
-#               <li>Geopolitische Spannungen</li>
-#               <li>Störungen in Lieferketten</li>
-#               <li>Stromausfälle und Energieengpässe</li>
-#               <li>Unterbrechungen in der Kommunikationsinfrastruktur (Internet/Mobilfunk)</li>
-#               <li>Zunehmende Bedrohung durch Cyberangriffe</li>
-#             </ul>
-#             <p><span style="font-size: 1.25rem;">Gleichzeitig steigt die weltweite Nachfrage nach Nahrungsmitteln – bei wachsendem Anspruch an Nachhaltigkeit und Umweltschutz.</span></p>
-#         </div>
-#     </div>
-#     <div class="column">
-#         <div class="highlight"; style="background-color:#f5f9f5; border-radius:10px; padding:20px">
-#             <h4 style="text-align: center;">❔ Leitfragen</h4>
-#             <ul>
-#             <li style="font-size: 1.35rem; color: darkblue;"><strong>Wie kann kritische Infrastruktur wie die Nahrungsmittelversorgung präziser, resilienter und effizienter überwacht werden?</strong></li>
-#             <li style="font-size: 1.35rem; color: darkblue;"><strong>Wie kann man gleichzeitig konkrete Handlungsempfehlungen ableiten, die zu nachhaltigem Nutzen (ökologisch, ökonomisch, gesellschaftlich) führen?</strong></li>
-#             </ul>
-#         </div>
-#     </div>
-# </div>
-# """, unsafe_allow_html=True)
-
 
 # Funktion zum Laden des Bildes als Base64
 def get_base64_image(image_path):
@@ -261,7 +211,7 @@ st.markdown(f"""
         position: relative;
         border-radius: 10px;
         overflow: hidden;
-        padding: 1.2rem;
+        padding: 1.2rem 1.2rem 0.6rem 1.2rem;
         border-radius: 8px;
         border-left: 4px solid #4caf50;
         margin: 1.5rem 0;
@@ -289,7 +239,7 @@ st.markdown(f"""
         position: relative;
         border-radius: 10px;
         overflow: hidden;
-        padding: 1.2rem;
+        padding: 1.2rem 1.2rem 0rem 1.2rem;;
         border-radius: 8px;
         border-left: 4px solid #4caf50;
         margin: 1.5rem 0;
@@ -935,7 +885,7 @@ with col_herausforderungen:
 #         <tr>
 #             <td>5. Theoretische Vertiefung & Methodik</td>
 #             <td>Monat 18–30</td>
-#             <td>• Tiefergehende Methodenarbeit (TinyML, Edge AI, Netzanalyse)<br>• Vergleich verschiedener Architekturen/Modelle<br>• ggf. Alternativen zum Setup evaluieren</td>
+#   m          <td>• Tiefergehende Methodenarbeit (TinyML, Edge AI, Netzanalyse)<br>• Vergleich verschiedener Architekturen/Modelle<br>• ggf. Alternativen zum Setup evaluieren</td>
 #         </tr>
 #         <tr>
 #             <td>6. Systematische Evaluation / Validierung</td>
@@ -958,8 +908,20 @@ with col_herausforderungen:
 # --- DISCLAIMER & FOOTER ---
 #st.markdown('<div class="disclaimer">Hinweis: Dies ist ein Forschungsprojekt. Es verspricht keine kommerzielle Reife, sondern zielt auf Machbarkeitsnachweis, Dokumentation und Transfer.</div>', unsafe_allow_html=True)
 
-st.markdown("""
+
+with open("Smarte und resiliente Landwirtschaft.pdf", "rb") as f:
+    pdf_bytes = f.read()
+
+pdf_base64 = base64.b64encode(pdf_bytes).decode('utf-8')
+
+st.markdown(f"""
 <div class="footer">
-Smarte und resiliente Landwirtschaft via Edge AI - Präsentation für potenzielle Projektpartner im Rahmen von <a href="https://innowest-brandenburg.de/">InNoWest</a><br>
-© 2025 | Technische Hochschule Brandenburg | Kontakt: <a href="mailto: eren.misirli@th-brandenburg.de">eren.misirli@th-brandenburg.de</a>
-</div>""", unsafe_allow_html=True)
+    Smarte und resiliente Landwirtschaft via Edge AI - Präsentation für potenzielle Projektpartner im Rahmen von <a href="https://innowest-brandenburg.de/">InNoWest</a> | 
+    <a href="data:application/pdf;base64,{pdf_base64}" 
+       download="Smarte und resiliente Landwirtschaft.pdf"
+       style="text-decoration: none; color: #4CAF50; font-weight: 400;">
+       als PDF herunterladen
+    </a><br>
+    © 2025 | Technische Hochschule Brandenburg | Kontakt: <a href="mailto: eren.misirli@th-brandenburg.de">eren.misirli@th-brandenburg.de</a>
+</div>
+""", unsafe_allow_html=True)
