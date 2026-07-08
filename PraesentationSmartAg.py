@@ -290,7 +290,6 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-#st.markdown("""<br>""", unsafe_allow_html=True)
 
 # --- SOLUTION APPROACH ---
 st.markdown('<div class="section">Ein Lösungsansatz</div>', unsafe_allow_html=True)
@@ -307,7 +306,6 @@ with tab1:
     
     import base64
     
-    # Bild als Base64 einbetten, um bessere Kontrolle über Groesse und Position zu haben
     with open("TechnologieAufbauErweitert3.png", "rb") as f:
         img_data = base64.b64encode(f.read()).decode()
     
@@ -336,7 +334,6 @@ with tab1:
             <li><b>AI-Kamera</b> mit integriertem LoRa-Transceiver  oder integriertem WiFi</li>
             <li><b>Lokale KI-Verarbeitung (Edge AI)</b> auf der Kamera mittels integrierter Tools wie TensorFlow Lite Micro oder PyTorch</li>
             <li><b>Datenübertragung</b> zu definierten Zeiten über energieeffizientes LoRaWAN (bis 10 km Reichweite) oder WiFi (hohe Bandbreite)</li>
-            <li>Zusätzliche Erprobung des Einsatzes von <b>verteiltem KI-Training (Federated Learning)</b> zur kontinuierlichen Verbesserung der Modelle möglich</li>
             <li><b>Stromversorgung</b> via Batterie (LoRaWAN-basierte Kamera) oder via Netzstrom (WiFi-basierte Kamera)</li>
         </ul>
         </div>
@@ -351,6 +348,7 @@ with tab1:
         """, unsafe_allow_html=True)
 
     # Einsatzbereiche: Überwachung von Pflanzenwachstum, Erkennung von Schädlingen/Krankheiten, Bodenfeuchteanalyse, Reifegradbestimmung
+    #<li>Zusätzliche Erprobung des Einsatzes von <b>verteiltem KI-Training (Federated Learning)</b> zur kontinuierlichen Verbesserung der Modelle möglich</li>
 
     with cols[1]:
         st.markdown("""
@@ -362,7 +360,7 @@ with tab1:
                 <li>Ein einzelnes Gerät auf Basis des Raspberry Pi, das <b>sowohl als Gateway als auch als zentraler Server</b> dient.</li>
                 <li>Gateway beinhaltet <b>LoRa-Transceiver, WLAN-Modul, LTE-Modul und SSD-Speicher</b></li>
                 <li>Vorinstalliertes Linux mit Docker ermöglicht <b>einfache Konfiguration und Containerisierung</b></li>
-                <li>Software: ChirpStack (Network Server für LoRaWAN), MQTT Broker (Datenvermittlung), PostgreSQL/TimescaleDB (Datenbank), Grafana (Visualisierung)</li>
+                <li>Software: ChirpStack (Network Server für LoRaWAN), MQTT Broker (Datenvermittlung), PostgreSQL (Datenbank), Grafana (Visualisierung)</li>
                 <li><b>Stromversorgung</b> via Netzstrom/Power over Ethernet (PoE)</li>
             </ul>
         </div>
@@ -408,28 +406,6 @@ with tab1:
 
         # <li><b>Maßnahmen</b> können direkt vor Ort abgeleitet und umgesetzt werden (z. B. Bewässerung, Warnung, Dokumentation).</li>
 
-        # - Bodenfeuchte & Temperatur
-        # - Lichtintensität & UV-Index
-        # - Luftfeuchtigkeit & CO₂
-        # - Nährstoffgehalt (Stickstoff, Phosphor, Kalium)
-
-
-    # with col_b:
-    #     # Mini-Diagramm: Stromverbrauch Vergleich
-    #     fig = go.Figure(go.Bar(
-    #         x=['Cloud ML', 'TinyML'],
-    #         y=[1000, 5],
-    #         marker_color=['#ef9a9a', '#81c784'],
-    #         text=[f"{y} mW" for y in [1000, 5]],
-    #         textposition='auto',
-    #     ))
-    #     fig.update_layout(
-    #         title="⚡ Energieverbrauch im Vergleich",
-    #         yaxis_title="Leistungsaufnahme (mW)",
-    #         showlegend=False,
-    #         height=300
-    #     )
-    #     st.plotly_chart(fig, use_container_width=True)
 
 with tab2:
     st.markdown(
@@ -450,100 +426,6 @@ with tab2:
     st.markdown("""<br><br><br><br><br><br>""", unsafe_allow_html=True)
 
 
-# # --- TAB 3: DEMO ---
-# with tab3:
-#     st.markdown('<div class="section-header">Live Demo Simulation</div>', unsafe_allow_html=True)
-    
-#     st.info("👉 *Stellen Sie sich vor: Sie sind Bauer und überwachen Ihr Feld in Echtzeit.*")
-    
-#     col_demo1, col_demo2 = st.columns(2)
-    
-#     with col_demo1:
-#         soil_moisture = st.slider("💧 Bodenfeuchte (%)", 0, 100, 35)
-#         temperature = st.slider("🌡️ Temperatur (°C)", 0, 45, 28)
-#         light_level = st.slider("☀️ Lichtintensität (Lux)", 0, 100000, 65000)
-    
-#     with col_demo2:
-#         # Simulierte TinyML Entscheidung
-#         if soil_moisture < 30:
-#             decision = "🔴 BEWÄSSERUNG AKTIVIEREN"
-#             color = "#e53935"
-#         elif soil_moisture > 70:
-#             decision = "🟡 ÜBERFLUTUNGSWARNUNG"
-#             color = "#fb8c00"
-#         else:
-#             decision = "🟢 OPTIMALER ZUSTAND"
-#             color = "#43a047"
-        
-#         st.markdown(f"""
-#         <div style="padding: 2rem; border-radius: 15px; background-color: {color}20; border: 2px solid {color}; text-align: center;">
-#             <h2>🤖 TinyML Entscheidung:</h2>
-#             <h1 style="color:{color};">{decision}</h1>
-#         </div>
-#         """, unsafe_allow_html=True)
-    
-#     # Fortschrittsvisualisierung
-#     st.markdown("### 📈 Feldzustand Visualisierung")
-
-#     # WICHTIG: 'type="domain"' für alle Subplots, da wir go.Indicator/Gauge nutzen!
-#     fig_demo = make_subplots(
-#         rows=1, cols=3,
-#         specs=[[{'type': 'domain'}, {'type': 'domain'}, {'type': 'domain'}]],  # ← DAS FEHLTEN!
-#         subplot_titles=("Feuchte", "Temperatur", "Licht")
-#     )
-
-#     # Feuchtigkeit
-#     fig_demo.add_trace(go.Indicator(
-#         mode="gauge+number",
-#         value=soil_moisture,
-#         title={'text': "Bodenfeuchte"},
-#         gauge={
-#             'axis': {'range': [0, 100]},
-#             'bar': {'color': "#4caf50"},
-#             'steps': [
-#                 {'range': [0, 30], 'color': "#ef9a9a"},
-#                 {'range': [30, 70], 'color': "#a5d6a7"},
-#                 {'range': [70, 100], 'color': "#fff59d"}
-#             ]
-#         }
-#     ), row=1, col=1)
-
-#     # Temperatur
-#     fig_demo.add_trace(go.Indicator(
-#         mode="gauge+number",
-#         value=temperature,
-#         title={'text': "Temperatur °C"},
-#         gauge={
-#             'axis': {'range': [0, 45]},
-#             'bar': {'color': "#ff7043"},
-#             'steps': [
-#                 {'range': [0, 20], 'color': "#bbdefb"},
-#                 {'range': [20, 35], 'color': "#e1f5fe"},
-#                 {'range': [35, 45], 'color': "#ffcdd2"}
-#             ]
-#         }
-#     ), row=1, col=2)
-
-#     # Licht
-#     fig_demo.add_trace(go.Indicator(
-#         mode="gauge+number",
-#         value=light_level / 1000,  # in kLux
-#         title={'text': "Licht (kLux)"},
-#         gauge={
-#             'axis': {'range': [0, 100]},
-#             'bar': {'color': "#ffb300"},
-#             'steps': [
-#                 {'range': [0, 30], 'color': "#e0e0e0"},
-#                 {'range': [30, 80], 'color': "#fff9c4"},
-#                 {'range': [80, 100], 'color': "#ffecb3"}
-#             ]
-#         }
-#     ), row=1, col=3)
-
-#     fig_demo.update_layout(height=300, margin=dict(t=50, b=0, l=0, r=0))
-#     st.plotly_chart(fig_demo, use_container_width=True)
-
-
 st.markdown("""<br><br>""", unsafe_allow_html=True)
 # --- KEY BENEFITS/CHALLENGES ---
 st.markdown('<div class="section">Abwägungen im Überblick</div>', unsafe_allow_html=True)
@@ -556,7 +438,7 @@ vorteile = [
     ("Kosteneffizienz und Energiesparsamkeit", "geringe Initialkosten & niedrige laufende Kosten & geringer Stromverbrauch der LoRaWAN-basierten Kameras", "💡"),
     ("Schnelligkeit", "zeitnahe Daten 24/7 und Entscheidungen möglich", "⏱️"),
     ("Datenhoheit", "lokale KI (Edge AI) & lokale Datenspeicherung", "🔒"),
-    ("Skalier- und Erweiterbarkeit", "modularer Aufbau & ergänzende Sensoren (z. B. Multisensor für Bodendaten) möglich & für kleine und große Betriebe geeignet", "🧩"),
+    ("Erweiterbarkeit", "modularer Aufbau & ergänzende Sensoren (z. B. Multisensor für Bodendaten) möglich & für kleine und große Betriebe geeignet", "🧩"),
     ("Lebensmittelsicherheit", "sicherere Lebensmittel durch genaues, nachvollziehbares Monitoring", "🥗"),
     ("Nachvollziehbarkeit", "Datengetriebene, transparente Entscheidungen möglich", "📚"),
     ("Planbarkeit", "frühere und genauere Erntevorhersage sowie Einkaufbedarfs- und Umsatzprognosen", "🔮"),
@@ -564,8 +446,9 @@ vorteile = [
 ]
 
 herausforderungen = [
-    ("Hardware", "Integration & Kommunikation der Komponenten (Sensorik, Gateway/Server, Zugriffsgeräte)", "🔗"),
+    ("Skalierung", "Flächendeckende Erfassung ist beschränkt durch die Anzahl der Kameras, ", "📏"),
     ("KI-Modellgüte und -Kalibrierung", "Bilder und ML-Modelle müssen für geringe Rechenkapazität komprimiert werden & Modellanpassungen für unterschiedl. Anwendungsfälle (z. B. Früchte, Installationsorte) nötig", "🧠"),
+    #("Hardware", "Integration & Kommunikation der Komponenten (Sensorik, Gateway/Server, Zugriffsgeräte)", "🔗"),
     #("Sensorzuverlässigkeit", "Kälte-/Wetterfestigkeit sind zu klären", "❄️"),
     ("Datenqualität", "Störungen oder Ausfälle können zu Datenlücken führen", "📉"),
     ("Echtzeitfähigkeit", "Pflanzenbeobachtung nur zu definierten Zeiten, um Energieverbrauch zu minimieren", "⏳"),
@@ -619,294 +502,36 @@ with col_herausforderungen:
         )
     st.markdown('</div>', unsafe_allow_html=True)
 
-# with col_right:
-#     # Diagramm: Energieverbrauch TinyML vs. klassisch
-#     fig_power = go.Figure(go.Bar(
-#         x=['TinyML Node', 'Cloud-basierter Sensor'],
-#         y=[0.05, 2.5],
-#         marker_color=['#4caf50', '#f44336'],
-#         text=["0.05W", "2.5W"],
-#         textposition='auto',
-#     ))
-#     fig_power.update_layout(
-#         title="Leistungsaufnahme im Vergleich",
-#         yaxis_title="Watt (W)",
-#         showlegend=False,
-#         height=250
-#     )
-#     st.plotly_chart(fig_power, use_container_width=True)
+
+# --- ONE SCENARIO ---
+st.markdown('<div class="section">Ein konkretes Anwendungsszenario</div>', unsafe_allow_html=True)
+
+st.markdown("""                
+<ul style="font-size:1.25rem;">
+    <li>Ort: Gewächshaus</li>
+    <li>Früchte: Tomaten, Paprika oder Gurken</li>
+    <li>Hardware: 1-3 KI-Kameras & 1 Gateway/Server vor Ort</li>
+</ul>
+""", unsafe_allow_html=True)
 
 
+# st.divider()
+
+# # --- DIRECT BENEFITS ---
+st.markdown('<div class="section">Unmittelbare Vorteile</div>', unsafe_allow_html=True)
+
+st.markdown("""                
+<ul style="font-size:1.25rem;">
+    <li>1. Erprobung von KI: Was kann aktuell KI auf Edge-Geräten leisten und was nicht?</li>
+    <li>2. Projekt unterstützt den Aufbau/die Verbesserung einer KI-Strategie: Wie könnte KI zukünftig im Betrieb eingesetzt werden (Robotik, Drohnen)?</li>
+    <li>3. Teilhabe an KI-Forschung als Werbung für eigenen Betrieb</li>
+    <li>4. Zugang zu innovativer Technologie sowie und Netzwerkaufbau zu Hochschulen</li>
+</ul>
+""", unsafe_allow_html=True)
 
 
-# # --- POTENTIAL PARTNERSHIPS ---
-# st.markdown('<div class="section">Was macht dieses Projekt relevant?</div>', unsafe_allow_html=True)
+# st.divider()
 
-# # --- TABS ---
-# tab1, tab2, tab3 = st.tabs(["🌾 Für die Landwirtschaft", "⚖️ Für Politik und Gesellschaft", "🔬 Für Forschung und Entwicklung"])
-
-# with tab1:
-
-#     st.markdown("""                
-#     <ul style="font-size:1.25rem;">
-#         <li>Verbesserte Ernteerträge durch frühzeitige Problemerkennung</li>
-#         <li>Ressourcenschonung, z.B. durch präzise Bewässerung</li>
-#         <li>Geringe Betriebskosten</li>
-#         <li>Lokale Kontrolle und Transparenz</li>
-#         <li>Unabhängigkeit von teuren Cloud-Diensten oder Mobilfunk</li>
-#     </ul>
-#     """, unsafe_allow_html=True)
-
-# with tab2:
-#     st.markdown("""
-#     <ul style="font-size:1.25rem;">
-#         <li>Beitrag zur Krisenresilienz kritischer Infrastrukturen</li>
-#         <li>Verbesserung der Lebensmittelsicherheit durch lokales, nachvollziehbares Monitoring</li>
-#         <li>Open Source, reproduzierbar, transferierbar</li>
-#         <li>Skalierbare Lösung für nachhaltige Nahrungsmittelproduktion</li>
-#         <li>Einsatz in Krisengebieten oder Entwicklungsländern möglich</li>
-#     </ul>
-#     """, unsafe_allow_html=True)
-
-# with tab3:
-#     st.markdown("""
-#     <ul style="font-size:1.25rem;">
-#         <li>Validierung von Edge-KI in ressourcenbeschränkten Umgebungen</li>
-#         <li>Grundlage für weiterführende Projekte (z.B. Integration weiterer Sensoren, Aktoren)</li>
-#         <li>Förderung von Open-Source-Innovationen im Agrarsektor</li>
-#     </ul>
-#     """, unsafe_allow_html=True)
-
-#st.divider()
-
-
-
-# # --- TIMELINE ---
-# st.markdown('<div class="section">Zeitplan</div>', unsafe_allow_html=True)
-
-# st.markdown("""
-# <div class="highlight">
-# Dieses Projekt ist im Rahmen von "InnoWest" als Forschungsprojekt vorgesehen, das aktuell bis Ende 2027 vorgesehen ist.
-# </div>
-# """, unsafe_allow_html=True)
-
-# # Timeline Diagramm
-# import plotly.figure_factory as ff
-
-# # Gantt-Chart-Daten passend zur Tabelle
-# gantt_data = [
-#     dict(Task="1. Konzeptphase", Start='2025-01-01', Finish='2025-03-31', Resource="Konzept"),
-#     dict(Task="2. Setup & Grundlagenaufbau", Start='2025-04-01', Finish='2025-06-30', Resource="Setup"),
-#     dict(Task="3. Integration Pilotphase", Start='2025-07-01', Finish='2025-12-31', Resource="Pilot"),
-#     dict(Task="4. Evaluation & Optimierung", Start='2026-01-01', Finish='2026-06-30', Resource="Evaluation"),
-#     dict(Task="5. Theoretische Vertiefung", Start='2026-07-01', Finish='2027-06-30', Resource="Vertiefung"),
-#     dict(Task="6. Systematische Evaluation", Start='2027-07-01', Finish='2027-12-31', Resource="Validierung"),
-#     # Letzte Phase endet Ende 2027, danach ein "+"-Balken
-#     dict(Task="Projektfortführung möglich", Start='2028-01-01', Finish='2028-01-31', Resource="Plus"),
-# ]
-
-# colors = {
-#     "Konzept": "#aed581",
-#     "Setup": "#81c784",
-#     "Pilot": "#4caf50",
-#     "Evaluation": "#388e3c",
-#     "Vertiefung": "#1976d2",
-#     "Validierung": "#ffb300",
-#     "Plus": "#bdbdbd"
-# }
-
-# # Dauer berechnen und in Task-Namen einfügen (außer für das "+"-Balken)
-# for d in gantt_data:
-#     if d["Resource"] != "Plus":
-#         start = datetime.strptime(d["Start"], "%Y-%m-%d")
-#         end = datetime.strptime(d["Finish"], "%Y-%m-%d")
-#         months = (end.year - start.year) * 12 + (end.month - start.month) + 1
-#         d["Task"] += f" ({months} Monate)"
-#     else:
-#         d["Task"] += " (+)"
-
-# timeline_fig = ff.create_gantt(
-#     gantt_data,
-#     index_col='Resource',
-#     show_colorbar=True,
-#     group_tasks=True,
-#     showgrid_x=True,
-#     showgrid_y=True,
-#     bar_width=0.35,
-#     height=440,
-#     colors=colors
-# )
-
-# timeline_fig.update_layout(
-#     title="Projektzeitplan (Gantt-Chart, Gesamtlaufzeit ca. 27 Monate, ggf. Fortführung ab 2028+)",
-#     xaxis_title="Jahr",
-#     yaxis_title="Projektphase",
-#     margin=dict(t=60, b=40, l=0, r=0),
-#     plot_bgcolor="#f9fbe7",
-#     font=dict(size=13),
-# )
-
-# st.plotly_chart(timeline_fig, use_container_width=True)
-
-
-
-
-
-
-
-# # st.markdown("""
-# # **Phase 1**: Hardware-Aufbau (Sensorik, Gateway, Server)
-# # **Phase 2**: Datenanbindung und -integration
-# # **Phase 3**: TinyML-Training (lokale Klassifikation von Stresszuständen)
-# # **Phase 4**: Feldtest mit lokalen Praxispartnern, Robustheitsoptimierung
-# # **Phase 5**: Dokumentation
-# # """)
-
-#     # Demonstrator eines vollständig lokalen Monitoringsystems entwickeln
-#     # Validierung der Robustheit in Krisenszenarien (Ausfall Internet/Strom)
-#     # Untersuchung der Machbarkeit und Effektivität für nachhaltige Landwirtschaft
-#     # Erste Implementierung von TinyML-Modellen auf Sensoren für Edge-Pattern-Recognition
-
-# # 1. Konzeptphase (Monat 1–3)
-# # • Literaturrecherche (TinyML, AI Cams, LoRaWAN etc.)
-# # • Definition der Forschungsfrage
-
-# # --- TABS ---
-# tabA, tabB = st.tabs(["🛠️ Praxisphase", "🧪 Forschungsprojekt Gesamt"])
-
-# with tabA:
-
-#     st.markdown("""
-#     <style>
-#     table {
-#         border-collapse: collapse;
-#         width: 100%;
-#     }
-
-#     th, td {
-#         border: 1px solid #ddd;
-#         padding: 8px;
-#         text-align: left;
-#     }
-
-#     th {
-#         background-color: #f2f2f2;
-#     }
-#     </style>
-#     <table>
-#         <tr>
-#             <th>Phase</th>
-#             <th>Zeitspanne</th>
-#             <th>Aufgaben</th>
-#         </tr>
-#         <tr>
-#             <td>1. Konzeptphase</td>
-#             <td>Monat 1–3</td>
-#             <td>• Literaturrecherche (TinyML, AI Cams, LoRaWAN etc.)<br>• Definition der Forschungsfrage<br>• Identifikation des Use Cases mit Praxispartner<br>• Auswahl/Anforderung der Geräte</td>
-#         </tr>
-#         <tr>
-#             <td>2. Setup & Grundlagenaufbau</td>
-#             <td>Monat 4–6</td>
-#             <td>• Aufsetzen von Gateway, MQTT-Broker, Serverstruktur<br>• Testsystem lokal: InfluxDB, Grafana, MQTT, TinyML-Training<br>• Prototyping mit AI-Kamera, Edge-Inferenz, Datenweiterleitung<br>• LoRaWAN-Grundlagen & initiale Tests</td>
-#         </tr>
-#         <tr>
-#             <td>3. Integration beim Praxispartner (Pilotphase)</td>
-#             <td>Monat 7–12</td>
-#             <td>• Gerätebereitstellung (Leihgabe)<br>• Anbindung an LoRaWAN + Gateway<br>• Datenfluss zum Server (MQTT + DB + Grafana)<br>• Feedbackschleifen mit Partner<br>• erste Messungen, Logging, Stabilität</td>
-#         </tr>
-#         <tr>
-#             <td>4. Evaluation & Optimierung</td>
-#             <td>Monat 13–18</td>
-#             <td>• Analyse der gesammelten Daten<br>• Optimierung TinyML-Modelle (evtl. Edge Retraining)<br>• Energieverbrauch, Latenz, Datenqualität analysieren<br>• Veröffentlichung erster Paper / Poster</td>
-#         </tr>
-#         <tr>
-#             <td>5. Theoretische Vertiefung & Methodik</td>
-#             <td>Monat 18–30</td>
-#             <td>• Tiefergehende Methodenarbeit (TinyML, Edge AI, Netzanalyse)<br>• Vergleich verschiedener Architekturen/Modelle<br>• ggf. Alternativen zum Setup evaluieren</td>
-#         </tr>
-#         <tr>
-#             <td>6. Systematische Evaluation / Validierung</td>
-#             <td>Monat 30–36</td>
-#             <td>• Gegenüberstellung mit anderen Systemen<br>• Langzeitauswertung<br>• Paper (konferenzfähig / journalfähig) schreiben</td>
-#         </tr>
-#         <tr>
-#             <td>7. Publikationen & Dissertationsschreiben</td>
-#             <td>Monat 36–42</td>
-#             <td>• Artikel zusammenfassen, neue Erkenntnisse<br>• Dissertation schreiben<br>• Verteidigung vorbereiten</td>
-#         </tr>
-#     </table>
-#     """, unsafe_allow_html=True)
-
-# with tabB:
-
-#     st.markdown("""
-#     <style>
-#     table {
-#         border-collapse: collapse;
-#         width: 100%;
-#     }
-
-#     th, td {
-#         border: 1px solid #ddd;
-#         padding: 8px;
-#         text-align: left;
-#     }
-
-#     th {
-#         background-color: #f2f2f2;
-#     }
-#     </style>
-#     <table>
-#         <tr>
-#             <th>Phase</th>
-#             <th>Zeitspanne</th>
-#             <th>Aufgaben</th>
-#         </tr>
-#         <tr>
-#             <td>1. Konzeptphase</td>
-#             <td>Monat 1–3</td>
-#             <td>• Literaturrecherche (TinyML, AI Cams, LoRaWAN etc.)<br>• Definition der Forschungsfrage<br>• Identifikation des Use Cases mit Praxispartner<br>• Auswahl/Anforderung der Geräte</td>
-#         </tr>
-#         <tr>
-#             <td>2. Setup & Grundlagenaufbau</td>
-#             <td>Monat 4–6</td>
-#             <td>• Aufsetzen von Gateway, MQTT-Broker, Serverstruktur<br>• Testsystem lokal: InfluxDB, Grafana, MQTT, TinyML-Training<br>• Prototyping mit AI-Kamera, Edge-Inferenz, Datenweiterleitung<br>• LoRaWAN-Grundlagen & initiale Tests</td>
-#         </tr>
-#         <tr>
-#             <td>3. Integration beim Praxispartner (Pilotphase)</td>
-#             <td>Monat 7–12</td>
-#             <td>• Gerätebereitstellung (Leihgabe)<br>• Anbindung an LoRaWAN + Gateway<br>• Datenfluss zum Server (MQTT + DB + Grafana)<br>• Feedbackschleifen mit Partner<br>• erste Messungen, Logging, Stabilität</td>
-#         </tr>
-#         <tr>
-#             <td>4. Evaluation & Optimierung</td>
-#             <td>Monat 13–18</td>
-#             <td>• Analyse der gesammelten Daten<br>• Optimierung TinyML-Modelle (evtl. Edge Retraining)<br>• Energieverbrauch, Latenz, Datenqualität analysieren<br>• Veröffentlichung erster Paper / Poster</td>
-#         </tr>
-#         <tr>
-#             <td>5. Theoretische Vertiefung & Methodik</td>
-#             <td>Monat 18–30</td>
-#   m          <td>• Tiefergehende Methodenarbeit (TinyML, Edge AI, Netzanalyse)<br>• Vergleich verschiedener Architekturen/Modelle<br>• ggf. Alternativen zum Setup evaluieren</td>
-#         </tr>
-#         <tr>
-#             <td>6. Systematische Evaluation / Validierung</td>
-#             <td>Monat 30–36</td>
-#             <td>• Gegenüberstellung mit anderen Systemen<br>• Langzeitauswertung<br>• Paper (konferenzfähig / journalfähig) schreiben</td>
-#         </tr>
-#         <tr>
-#             <td>7. Publikationen & Dissertationsschreiben</td>
-#             <td>Monat 36–42</td>
-#             <td>• Artikel zusammenfassen, neue Erkenntnisse<br>• Dissertation schreiben<br>• Verteidigung vorbereiten</td>
-#         </tr>
-#     </table>
-#     """, unsafe_allow_html=True)
-
-# if st.button("Mehr über die Implementation"):
-#     st.write("Kontaktieren Sie uns unter **eren.misirli@th-brandenburg.de** für einen detaillierten Implementierungsplan, der auf den Anwendungsfall zugeschnitten ist!")
-# st.markdown('</div>', unsafe_allow_html=True)
-
-
-# --- DISCLAIMER & FOOTER ---
-#st.markdown('<div class="disclaimer">Hinweis: Dies ist ein Forschungsprojekt. Es verspricht keine kommerzielle Reife, sondern zielt auf Machbarkeitsnachweis, Dokumentation und Transfer.</div>', unsafe_allow_html=True)
 
 with open("Smarte und resiliente Landwirtschaft.pdf", "rb") as f:
     pdf_bytes = f.read()
@@ -921,74 +546,6 @@ st.markdown(f"""
        style="text-decoration: none; color: #4CAF50; font-weight: 400;">
        als PDF herunterladen
     </a><br>
-    © 2025 | Technische Hochschule Brandenburg | Kontakt: <a href="mailto: eren.misirli@th-brandenburg.de">eren.misirli@th-brandenburg.de</a>
+    © 2026 | Technische Hochschule Brandenburg | Kontakt: <a href="mailto: eren.misirli@th-brandenburg.de">eren.misirli@th-brandenburg.de</a>
 </div>
 """, unsafe_allow_html=True)
-
-
-# --- FOOTER WITH LOGOS ---
-# def load_image_base64(image_path):
-#     import base64
-#     from pathlib import Path
-#     try:
-#         img_bytes = Path(image_path).read_bytes()
-#         encoded = base64.b64encode(img_bytes).decode()
-#         return f"data:image/png;base64,{encoded}"
-#     except:
-#         return ""
-
-# logo_right = load_image_base64("THB.png")
-# logo_left = load_image_base64("InNoWest-Logo.png")
-
-# with open("Smarte und resiliente Landwirtschaft.pdf", "rb") as f:
-#     pdf_base64 = base64.b64encode(f.read()).decode()
-
-# st.markdown(f"""
-# <style>
-# .footer {{
-#     display: flex;
-#     align-items: center;
-#     justify-content: space-between; /* Spread items to edges */
-#     padding: 1rem 1rem;
-#     border-top: 1px solid #e0e0e0;
-#     margin-top: 1rem;
-# }}
-
-# .footer > * {{
-#     flex: 1 10 1;
-# }}
-
-# .footer img {{
-#     position: bottom;
-#     height: 35px;
-# }}
-
-# .footer-center {{
-#     text-align: center;
-#     color: #757575;
-#     font-size: 0.85rem;
-# }}
-
-# .footer-center a {{
-#     justify-content: center;
-#     color: #4CAF50;
-#     text-decoration: none;
-# }}
-# </style>
-
-# <div class="footer">
-#     <div><img src="{logo_left}" alt="TH Brandenburg"></div>
-#     <div class="footer-center">
-#         Smarte und resiliente Landwirtschaft via Edge AI - Präsentation für potenzielle Projektpartner im Rahmen von <a href="https://innowest-brandenburg.de/">InNoWest</a> |
-#         <a href="data:application/pdf;base64,{pdf_base64}" 
-#         download="Smarte und resiliente Landwirtschaft.pdf"
-#         style="text-decoration: none; color: #4CAF50; font-weight: 400;">
-#         als PDF herunterladen
-#         </a><br>
-#         © 2025 | Technische Hochschule Brandenburg | Kontakt: <a href="mailto: eren.misirli@th-brandenburg.de">eren.misirli@th-brandenburg.de</a>
-#     </div>
-#     <div style="text-align: right;"><img src="{logo_right}" alt="xxx"></div>
-# </div>
-# """, unsafe_allow_html=True)
-
-#####################
