@@ -504,16 +504,15 @@ with col_herausforderungen:
 
 
 # --- ONE SCENARIO ---
-st.markdown('<div class="section">Ein konkretes Anwendungsszenario</div>', unsafe_allow_html=True)
+st.markdown('<div class="section">Ein konkretes Anwendungsszenario als Beispiel</div>', unsafe_allow_html=True)
 
 st.markdown("""                
 <ul style="font-size:1.25rem;">
     <li>Ort: Gewächshaus</li>
-    <li>Früchte: Tomaten, Paprika oder Gurken</li>
+    <li>Früchte: z.B. Tomaten, Paprika oder Gurken</li>
     <li>Hardware: 1-3 KI-Kameras & 1 Gateway/Server vor Ort</li>
 </ul>
 """, unsafe_allow_html=True)
-
 
 # st.divider()
 
@@ -522,16 +521,15 @@ st.markdown('<div class="section">Unmittelbare Vorteile</div>', unsafe_allow_htm
 
 st.markdown("""                
 <ul style="font-size:1.25rem;">
-    <li>1. Erprobung von KI: Was kann aktuell KI auf Edge-Geräten leisten und was nicht?</li>
+    <li>1. Erprobung von KI: Was kann aktuell KI auf Kleingeräten (Edge) leisten und was nicht?</li>
     <li>2. Projekt unterstützt den Aufbau/die Verbesserung einer KI-Strategie: Wie könnte KI zukünftig im Betrieb eingesetzt werden (Robotik, Drohnen)?</li>
     <li>3. Teilhabe an KI-Forschung als Werbung für eigenen Betrieb</li>
     <li>4. Zugang zu innovativer Technologie sowie und Netzwerkaufbau zu Hochschulen</li>
 </ul>
 """, unsafe_allow_html=True)
 
-
 # st.divider()
-
+st.markdown("")
 
 with open("Smarte und resiliente Landwirtschaft.pdf", "rb") as f:
     pdf_bytes = f.read()
